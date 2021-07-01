@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-conv
+spec:
+  selector:
+    matchLabels:
+      app: api-conv
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: api-conv
+    spec:
+      containers:
+      - name: api-conv
+        image: 042821/api-conversao:v2
+        ports:
+        - containerPort: 8081
